@@ -60,7 +60,7 @@ class Person {
   poop(){
     if(this.stomach.length = 0){
      function empty(stomach){
-      stomach = [];
+      this.stomach = [];
      }
     }
   }
@@ -98,7 +98,7 @@ class Car {
     if (driveableMiles < distance){
       this.tank = 0;
       this.odometer = this.odometer + driveableMiles
-      return `I ran out of fuel at ${this.odometer} miles!`;
+      return `${this.odometer}`;
     }else if (driveableMiles > distance){
       this.odometer = this.odometer + distance;
       this.tank = this.tank - gallonsNeeded;
@@ -126,7 +126,7 @@ class Lambdasian {
     this.location = attributes.location
   }
   speak(){
-    return `Hello my name is ${this.name}, I am from ${this.location}.`
+    return `${this.name} ${this.location}.`
   }
 }
 
@@ -152,10 +152,10 @@ class Instructor extends Lambdasian {
     this.catchPhrase = attributes.catchPhrase;
   }
   demo(subject){
-    return `Today we are learning about ${subject}`
+    return `${subject}`
   }
   grade(student, subject){
-    return `${student} receives a perfect score on ${subject}`
+    return `${student.name} ${subject}`
   }
 }
 
@@ -182,13 +182,13 @@ class Student extends Lambdasian{
     this.favSubjects = attributes.favSubjects;
   }
   listSubjects(){
-    return `Loving ${this.favSubjects}`
+    return `${this.favSubjects}`
   }
-  PRAssignment(student, subject){
-    return `${student.name} has sumbitted a PR for ${subject}`
+  PRAssignment(subject){
+    return `${this.name} ${subject}`
   }
-  sprintChallenge(student, subject){
-    return `${student.name} has begun sprint challenge on ${subject} `
+  sprintChallenge(subject){
+    return `${this.name} ${subject} `
   }
 } 
 
@@ -211,7 +211,12 @@ class ProjectManager extends Instructor{
     this.gradClassName = attributes.gradClassName;
     this.favInstructor = attributes.favInstructor;
   }
-  
+  standUp(channel){
+    return `${this.name} ${channel}`  
+  }
+  debugsCode(student, subject){
+    return `${this.name} ${student.name} ${subject}`
+  }
 }
 
 /*
